@@ -1,5 +1,6 @@
 package com.example.zilanmapapplication;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -7,9 +8,11 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.sample.basiclocationsample.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -20,7 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements LocationListener, View.OnClickListener {
 
     private GoogleMap mMap;
     double latitude;
@@ -37,7 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         koordinat = (Button) findViewById(R.id.koordinat);
         posisi_user = (Button) findViewById(R.id.posisi_user);
 
-        koordinat.setOnClickListener(thi);
+        koordinat.setOnClickListener(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
           //      .findFragmentById(R.id.map);
@@ -83,4 +86,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //    mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
     //    mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
 }
